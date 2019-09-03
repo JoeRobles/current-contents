@@ -4,12 +4,12 @@ const db = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
 const postsTable = process.env.POSTS_TABLE;
 const uniqid = require('uniqid');
 
-const response = (statusCode, message) => {
+function response(statusCode, message) {
   return {
-    statusCode,
+    statusCode: statusCode,
     body: JSON.stringify(message)
   };
-};
+}
 
 module.exports.createAuthor = (event, context, callback) => {
   const reqBody = JSON.parse(event.body);
@@ -25,7 +25,7 @@ module.exports.createAuthor = (event, context, callback) => {
     return callback(
       null,
       response(400, {
-        error: 'Post must have a title and body and they must not be empty'
+        error: 'Post must have a authorName a birthDate and an email, and they must not be empty'
       })
     );
   }

@@ -8,7 +8,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs8.10
   environment: ${self:custom.settings}
   region: us-east-2
   iamRoleStatements:
