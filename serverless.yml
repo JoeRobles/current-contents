@@ -4,7 +4,7 @@ service: curcon
 
 custom:
   settings:
-    POSTS_TABLE: CC_Author
+    POSTS_TABLE: CurCon_Author
 
 provider:
   name: aws
