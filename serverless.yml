@@ -31,7 +31,7 @@ functions:
 
 resources:
   Resources:
-    PostTable:
+    PostsTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
