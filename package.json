@@ -1,0 +1,29 @@
+{
+  "name": "current-contents",
+  "version": "1.0.0",
+  "description": "Authors and publications database",
+  "main": "handler.js",
+  "dependencies": {
+    "uniqid": "^5.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoeRobles/current-contents.git"
+  },
+  "keywords": [
+    "authors",
+    "books",
+    "database",
+    "search"
+  ],
+  "author": "Joe Robles <joe.robles.pdj@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoeRobles/current-contents/issues"
+  },
+  "homepage": "https://github.com/JoeRobles/current-contents#readme"
+}

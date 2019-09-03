@@ -1,18 +1,32 @@
 'use strict';
+const AWS = require('aws-sdk');
+const db = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10'});
+const postTable = process.env.POST_TABLE;
+const uniqid = requre('uniqid');
 
-module.exports.hello = async event => {
+const response = (statusCode, message) => {
   return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
-      },
-      null,
-      2
-    ),
+    statusCode,
+    body: JSON.stringify(message)
+  }
+};
+
+module.exports.createAuthor = async (event, context, callback) => {
+  const reqBody = JSON.parse(event.body);
+  const post = {
+    authorId: uniqid(),
+    createdAt: newDate().toISOString(),
+    userId: 1,
+    title: reqBody.title,
+    body: reqBody.body,
   };
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+  return db.put({
+    TableName: postTable,
+    Item: post
+  })
+  .promise().then(() => {
+    callback(null, response(201, post))
+  })
+  .catch(err => response(null, response(err.statusCode, err)));
 };
