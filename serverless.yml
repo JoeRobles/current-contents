@@ -1,8 +1,10 @@
+org: joebuntu
+app: current-contents
 service: cc
 
 custom:
   settings:
-    POST_TABLE: CC_Author
+    POSTS_TABLE: CC_Author
 
 provider:
   name: aws
@@ -19,7 +21,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.settings.POST_TABLE}"
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.settings.POSTS_TABLE}"
 
 functions:
   createAuthor:
@@ -43,4 +45,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:custom.settings.POST_TABLE}
+        TableName: ${self:custom.settings.POSTS_TABLE}
