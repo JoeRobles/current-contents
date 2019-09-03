@@ -1,10 +1,10 @@
 org: joebuntu
-app: current-contents
-service: curcon
+app: CurrentContents
+service: current
 
 custom:
   settings:
-    POSTS_TABLE: CurCon_Author
+    POSTS_TABLE: Current_Author
 
 provider:
   name: aws
