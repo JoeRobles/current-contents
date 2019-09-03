@@ -25,7 +25,7 @@ provider:
 
 functions:
   createAuthor:
-    handler: handler.crateAuthor
+    handler: handler.createAuthor
     events:
     - http:
         path: /author
