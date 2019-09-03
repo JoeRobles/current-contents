@@ -2,7 +2,7 @@ service: cc
 
 custom:
   settings:
-    POSTS_TABLE: CC_Author
+    POST_TABLE: CC_Author
 
 provider:
   name: aws
@@ -26,8 +26,8 @@ functions:
     handler: handler.crateAuthor
     events:
     - http:
-      path: /post
-      method: post
+        path: /author
+        method: post
 
 resources:
   Resources:

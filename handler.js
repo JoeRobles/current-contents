@@ -15,10 +15,10 @@ module.exports.createAuthor = async (event, context, callback) => {
   const reqBody = JSON.parse(event.body);
   const post = {
     authorId: uniqid(),
+    authorName: reqBody.authorName,
+    birthDate: reqBody.birthDate,
+    email: reqBody.email,
     createdAt: newDate().toISOString(),
-    userId: 1,
-    title: reqBody.title,
-    body: reqBody.body,
   };
 
   return db.put({
