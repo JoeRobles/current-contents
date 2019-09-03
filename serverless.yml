@@ -1,6 +1,6 @@
 org: joebuntu
 app: current-contents
-service: cc
+service: curcon
 
 custom:
   settings:
